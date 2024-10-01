@@ -1,7 +1,7 @@
 package com.example.presentation.converter.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.domain.models.ConverterActions
+import com.example.domain.actions.ConverterActions
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -5,16 +5,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.presentation.blank.BlankFragmentInterface
+import com.example.presentation.blank.ui.BlankFragmentInterface
 import com.example.presentation.converter.ui.ConverterFragment
 import com.example.presentation.message.ui.MessageFragment
 import com.example.presentation.message.ui.MessageFragmentInterface
+import com.example.presentation.notes.ui.NotesFragment
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(), BlankFragmentInterface, MessageFragmentInterface {
 
     private val messageFragment: MessageFragment by inject()
     private val converterFragment: ConverterFragment by inject()
+    private val notesFragment: NotesFragment by inject()
 
     private val router = RootActivityRouter(supportFragmentManager = supportFragmentManager)
 
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity(), BlankFragmentInterface, MessageFragmen
 
     override fun onClickedButton() {
         router.pushToMessageFragment(
-            fragment = messageFragment.getMessageFragment()
+            fragment = notesFragment.getNotesFragment()
         )
     }
 

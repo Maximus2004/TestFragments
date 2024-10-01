@@ -1,4 +1,4 @@
-package com.example.domain.models
+package com.example.domain.actions
 
 sealed interface ConverterActions {
     object Loading: ConverterActions

@@ -3,6 +3,7 @@ package com.example.testfragments
 import android.app.Application
 import com.example.presentation.converter.di.converterModule
 import com.example.presentation.message.di.messageModule
+import com.example.presentation.notes.di.notesModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,7 +17,8 @@ class Application: Application() {
             androidContext(this@Application)
             modules(
                 messageModule,
-                converterModule
+                converterModule,
+                notesModule
             )
         }
     }

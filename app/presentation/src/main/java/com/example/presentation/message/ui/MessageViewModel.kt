@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import com.example.domain.models.MessageActions
+import com.example.domain.actions.MessageActions
 
 class MessageViewModel: ViewModel() {
     private val viewStateFlow: MutableStateFlow<MessageViewState> = MutableStateFlow(
