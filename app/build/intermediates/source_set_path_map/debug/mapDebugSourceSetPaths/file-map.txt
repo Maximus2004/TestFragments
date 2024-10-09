@@ -1,0 +1,62 @@
+com.example.testfragments.app-annotation-experimental-1.4.1-0 C:\Users\i5-14600K\.gradle\caches\transforms-4\02aaf66b65b332b18f8e041f5d60e3cb\transformed\annotation-experimental-1.4.1\res
+com.example.testfragments.app-runtime-saveable-release-1 C:\Users\i5-14600K\.gradle\caches\transforms-4\03b45498007765119e30c335b9ed984f\transformed\runtime-saveable-release\res
+com.example.testfragments.app-appcompat-1.7.0-2 C:\Users\i5-14600K\.gradle\caches\transforms-4\088ea3d619c79d136edbd21f56bd9899\transformed\appcompat-1.7.0\res
+com.example.testfragments.app-savedstate-1.2.1-3 C:\Users\i5-14600K\.gradle\caches\transforms-4\0a724d2905dbf87f92793d0e8b39880e\transformed\savedstate-1.2.1\res
+com.example.testfragments.app-runtime-release-4 C:\Users\i5-14600K\.gradle\caches\transforms-4\0c12ee0848f0e469cb160c2c089cdd2d\transformed\runtime-release\res
+com.example.testfragments.app-fragment-ktx-1.6.2-5 C:\Users\i5-14600K\.gradle\caches\transforms-4\0e909ef45becc368d759fae71487c4fc\transformed\fragment-ktx-1.6.2\res
+com.example.testfragments.app-ui-unit-release-6 C:\Users\i5-14600K\.gradle\caches\transforms-4\14214da287128fc57b24bbe1153bf1ac\transformed\ui-unit-release\res
+com.example.testfragments.app-customview-poolingcontainer-1.0.0-7 C:\Users\i5-14600K\.gradle\caches\transforms-4\147847028f281f7220c26ed01ccfadf1\transformed\customview-poolingcontainer-1.0.0\res
+com.example.testfragments.app-ui-text-release-8 C:\Users\i5-14600K\.gradle\caches\transforms-4\168aebb9ca7b4d5eead10704e12dbbdd\transformed\ui-text-release\res
+com.example.testfragments.app-emoji2-views-helper-1.3.0-9 C:\Users\i5-14600K\.gradle\caches\transforms-4\1902a4b81f5ee2bd294992f65d4f7a48\transformed\emoji2-views-helper-1.3.0\res
+com.example.testfragments.app-graphics-path-1.0.1-10 C:\Users\i5-14600K\.gradle\caches\transforms-4\196f113b04b0c6a71f6025e7c12542ea\transformed\graphics-path-1.0.1\res
+com.example.testfragments.app-activity-1.9.0-11 C:\Users\i5-14600K\.gradle\caches\transforms-4\1cac14b6ff19af8aa1fc043b55aa5ebb\transformed\activity-1.9.0\res
+com.example.testfragments.app-emoji2-1.3.0-12 C:\Users\i5-14600K\.gradle\caches\transforms-4\21054a57077e0aaae3d317a8c18f09af\transformed\emoji2-1.3.0\res
+com.example.testfragments.app-material-ripple-release-13 C:\Users\i5-14600K\.gradle\caches\transforms-4\2400aae19e473652f8c5d1f8ac037cc2\transformed\material-ripple-release\res
+com.example.testfragments.app-material-icons-core-release-14 C:\Users\i5-14600K\.gradle\caches\transforms-4\257e62ac4da87cef7240c828badfe666\transformed\material-icons-core-release\res
+com.example.testfragments.app-transition-1.5.0-15 C:\Users\i5-14600K\.gradle\caches\transforms-4\3500209462f0565bbe691dbb2536b940\transformed\transition-1.5.0\res
+com.example.testfragments.app-lifecycle-livedata-2.8.3-16 C:\Users\i5-14600K\.gradle\caches\transforms-4\39ed50d9f5a50051def8240e3520f1e9\transformed\lifecycle-livedata-2.8.3\res
+com.example.testfragments.app-lifecycle-runtime-release-17 C:\Users\i5-14600K\.gradle\caches\transforms-4\3f18ef356613d2cc3aa26bb532c651d9\transformed\lifecycle-runtime-release\res
+com.example.testfragments.app-drawerlayout-1.1.1-18 C:\Users\i5-14600K\.gradle\caches\transforms-4\4235ae4a300972022e5581b580404a36\transformed\drawerlayout-1.1.1\res
+com.example.testfragments.app-ui-util-release-19 C:\Users\i5-14600K\.gradle\caches\transforms-4\43f151ca92513b70f9a78c2a33c8ac55\transformed\ui-util-release\res
+com.example.testfragments.app-material3-1.1.1-20 C:\Users\i5-14600K\.gradle\caches\transforms-4\4d8f33c9bf7dce4f06c3a87c8c838d1d\transformed\material3-1.1.1\res
+com.example.testfragments.app-lifecycle-viewmodel-ktx-2.8.3-21 C:\Users\i5-14600K\.gradle\caches\transforms-4\57b092ee95fbb7f1c3aed9632227c2ea\transformed\lifecycle-viewmodel-ktx-2.8.3\res
+com.example.testfragments.app-core-1.13.1-22 C:\Users\i5-14600K\.gradle\caches\transforms-4\5a203e982c0a61f93f4318dcbafe4b54\transformed\core-1.13.1\res
+com.example.testfragments.app-lifecycle-livedata-core-ktx-2.8.3-23 C:\Users\i5-14600K\.gradle\caches\transforms-4\5b9a1206dfe5ce7ad8addf7acc6794e0\transformed\lifecycle-livedata-core-ktx-2.8.3\res
+com.example.testfragments.app-lifecycle-process-2.8.3-24 C:\Users\i5-14600K\.gradle\caches\transforms-4\650cab69a7b48aa0b7af3c2259e74fd2\transformed\lifecycle-process-2.8.3\res
+com.example.testfragments.app-lifecycle-viewmodel-savedstate-2.8.3-25 C:\Users\i5-14600K\.gradle\caches\transforms-4\69e4d652becca17c0d4ba3493848b789\transformed\lifecycle-viewmodel-savedstate-2.8.3\res
+com.example.testfragments.app-cardview-1.0.0-26 C:\Users\i5-14600K\.gradle\caches\transforms-4\6b719de9ca3a8d836fe2ddada6d3c03e\transformed\cardview-1.0.0\res
+com.example.testfragments.app-lifecycle-runtime-compose-release-27 C:\Users\i5-14600K\.gradle\caches\transforms-4\705877cd9bf59f07174f55566700c835\transformed\lifecycle-runtime-compose-release\res
+com.example.testfragments.app-savedstate-ktx-1.2.1-28 C:\Users\i5-14600K\.gradle\caches\transforms-4\7821cf7354dd02b142cb0382d247ba07\transformed\savedstate-ktx-1.2.1\res
+com.example.testfragments.app-animation-release-29 C:\Users\i5-14600K\.gradle\caches\transforms-4\799365a520134058092c549d97a3f5f0\transformed\animation-release\res
+com.example.testfragments.app-lifecycle-livedata-core-2.8.3-30 C:\Users\i5-14600K\.gradle\caches\transforms-4\7b1d8322e441b89f8dcaa9eb858a70ee\transformed\lifecycle-livedata-core-2.8.3\res
+com.example.testfragments.app-lifecycle-runtime-ktx-release-31 C:\Users\i5-14600K\.gradle\caches\transforms-4\8b1a3cec8337563709de8f0fbcf10cd8\transformed\lifecycle-runtime-ktx-release\res
+com.example.testfragments.app-startup-runtime-1.1.1-32 C:\Users\i5-14600K\.gradle\caches\transforms-4\8c7337b565d000f4493628a988d87613\transformed\startup-runtime-1.1.1\res
+com.example.testfragments.app-foundation-layout-release-33 C:\Users\i5-14600K\.gradle\caches\transforms-4\990029612496d1337816f9e310e92bcc\transformed\foundation-layout-release\res
+com.example.testfragments.app-ui-graphics-release-34 C:\Users\i5-14600K\.gradle\caches\transforms-4\9e974a57df4b124aca43a9d1ac9fd858\transformed\ui-graphics-release\res
+com.example.testfragments.app-ui-release-35 C:\Users\i5-14600K\.gradle\caches\transforms-4\9eb777e7f07c48786ed96df7840a1507\transformed\ui-release\res
+com.example.testfragments.app-activity-compose-1.9.0-36 C:\Users\i5-14600K\.gradle\caches\transforms-4\a6dd81c12a01bac0dedfb5d5799cbe3b\transformed\activity-compose-1.9.0\res
+com.example.testfragments.app-lifecycle-viewmodel-release-37 C:\Users\i5-14600K\.gradle\caches\transforms-4\b41169cfec22562dc55f44bc6e6fbee0\transformed\lifecycle-viewmodel-release\res
+com.example.testfragments.app-ui-geometry-release-38 C:\Users\i5-14600K\.gradle\caches\transforms-4\b4764459d7b86c605166bf94e2e1a632\transformed\ui-geometry-release\res
+com.example.testfragments.app-core-runtime-2.2.0-39 C:\Users\i5-14600K\.gradle\caches\transforms-4\be86cb212828a0a10860485c23679b3e\transformed\core-runtime-2.2.0\res
+com.example.testfragments.app-animation-core-release-40 C:\Users\i5-14600K\.gradle\caches\transforms-4\c097b00aa48f4382c2c85c7d0e5f6384\transformed\animation-core-release\res
+com.example.testfragments.app-fragment-1.6.2-41 C:\Users\i5-14600K\.gradle\caches\transforms-4\c2a4e52810603f0dc66d425cc3e4dc1a\transformed\fragment-1.6.2\res
+com.example.testfragments.app-material-1.12.0-42 C:\Users\i5-14600K\.gradle\caches\transforms-4\c346a8002aaa5f13e7a1041c542def76\transformed\material-1.12.0\res
+com.example.testfragments.app-appcompat-resources-1.7.0-43 C:\Users\i5-14600K\.gradle\caches\transforms-4\c5f125055a0e9f59885601bc49026424\transformed\appcompat-resources-1.7.0\res
+com.example.testfragments.app-coordinatorlayout-1.1.0-44 C:\Users\i5-14600K\.gradle\caches\transforms-4\ca258d8805d0c93318fcf6f7a145fd03\transformed\coordinatorlayout-1.1.0\res
+com.example.testfragments.app-ui-tooling-preview-release-45 C:\Users\i5-14600K\.gradle\caches\transforms-4\e2aa47739be4eaf4bd06bcc5ac37e76d\transformed\ui-tooling-preview-release\res
+com.example.testfragments.app-core-ktx-1.13.1-46 C:\Users\i5-14600K\.gradle\caches\transforms-4\ec9a57fd4d73c30c9c20d28a27e9a9ee\transformed\core-ktx-1.13.1\res
+com.example.testfragments.app-foundation-release-47 C:\Users\i5-14600K\.gradle\caches\transforms-4\f09bad55728b4a5954403ea0be40fe19\transformed\foundation-release\res
+com.example.testfragments.app-viewpager2-1.0.0-48 C:\Users\i5-14600K\.gradle\caches\transforms-4\f3640472332183afef37de723dfefbcc\transformed\viewpager2-1.0.0\res
+com.example.testfragments.app-profileinstaller-1.3.1-49 C:\Users\i5-14600K\.gradle\caches\transforms-4\f3b30d78fc65d18b2a23bee03bf525ea\transformed\profileinstaller-1.3.1\res
+com.example.testfragments.app-activity-ktx-1.9.0-50 C:\Users\i5-14600K\.gradle\caches\transforms-4\f6b13073084b1f13dd8e8e54316b162f\transformed\activity-ktx-1.9.0\res
+com.example.testfragments.app-recyclerview-1.1.0-51 C:\Users\i5-14600K\.gradle\caches\transforms-4\fc37a058aeec3905aa16660e3280d872\transformed\recyclerview-1.1.0\res
+com.example.testfragments.app-constraintlayout-2.1.4-52 C:\Users\i5-14600K\.gradle\caches\transforms-4\fd4bc10ef6ca9d910d4e583c6d91e184\transformed\constraintlayout-2.1.4\res
+com.example.testfragments.app-pngs-53 E:\Android Projects\TestFragments\app\build\generated\res\pngs\debug
+com.example.testfragments.app-resValues-54 E:\Android Projects\TestFragments\app\build\generated\res\resValues\debug
+com.example.testfragments.app-packageDebugResources-55 E:\Android Projects\TestFragments\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.testfragments.app-packageDebugResources-56 E:\Android Projects\TestFragments\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.testfragments.app-debug-57 E:\Android Projects\TestFragments\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.testfragments.app-debug-58 E:\Android Projects\TestFragments\app\domain\build\intermediates\packaged_res\debug\packageDebugResources
+com.example.testfragments.app-debug-59 E:\Android Projects\TestFragments\app\presentation\build\intermediates\packaged_res\debug\packageDebugResources
+com.example.testfragments.app-debug-60 E:\Android Projects\TestFragments\app\src\debug\res
+com.example.testfragments.app-main-61 E:\Android Projects\TestFragments\app\src\main\res
