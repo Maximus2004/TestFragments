@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import com.example.testapplication.ui.theme.TestFragmentsTheme
+import com.example.presentation.theme.TestFragmentsTheme
 
 class NotesFragment: Fragment() {
     override fun onCreateView(
