@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.example.presentation.creation.ui.NoteCreationFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Создание заметки"
+        android:textSize="26sp"
+        android:paddingBottom="30dp" />
+
+    <EditText
+        android:id="@+id/noteNameEditText"
+        android:layout_width="match_parent"
+        android:hint="Введите название заметки..."
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/noteDescriptionEditText"
+        android:layout_width="match_parent"
+        android:hint="Введитt заметкe..."
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/readyButton"
+        android:text="ГОТОВО"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="УДАЛИТЬ" />
+
+</LinearLayout>

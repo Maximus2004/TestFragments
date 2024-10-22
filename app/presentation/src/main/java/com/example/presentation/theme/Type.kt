@@ -22,5 +22,12 @@ val Typography = Typography(
         lineHeight = 20.sp,
         letterSpacing = 0.25.sp,
         color = Color.Black
+    ),
+    labelLarge = TextStyle(
+        fontFamily = Montserrat,
+        fontWeight = FontWeight.Normal,
+        fontSize = 21.sp,
+        letterSpacing = 0.25.sp,
+        color = Color.Black
     )
 )

@@ -5,7 +5,8 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
 private val LightColorScheme = lightColorScheme(
-    surface = surface
+    surface = surface,
+    surfaceTint = surfaceTint
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

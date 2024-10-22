@@ -2,6 +2,8 @@ package com.example.testfragments
 
 import android.app.Application
 import com.example.presentation.converter.di.converterModule
+import com.example.presentation.creation.di.noteCreationModule
+import com.example.presentation.main.di.mainScreenModule
 import com.example.presentation.message.di.messageModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -16,7 +18,9 @@ class Application: Application() {
             androidContext(this@Application)
             modules(
                 messageModule,
-                converterModule
+                converterModule,
+                mainScreenModule,
+                noteCreationModule
             )
         }
     }
