@@ -35,12 +35,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.presentation.R
+import com.example.presentation.main.ui.MainScreenInterface
 import com.example.presentation.notes.models.NoteItem
 import com.example.presentation.notes.models.mockNoteItems
 import com.example.presentation.theme.TestFragmentsTheme
 
 @Composable
-fun NotesScreen(onClickAddNewNote: () -> Unit) {
+fun NotesScreen(callback: MainScreenInterface) {
     val scrollState = rememberScrollState()
     Column(
         Modifier
@@ -66,7 +67,7 @@ fun NotesScreen(onClickAddNewNote: () -> Unit) {
                 NoteItemContent(it)
             }
             item {
-                AddNewNoteItem(onClickAddNewNote)
+                AddNewNoteItem(callback::toNoteCreation)
             }
         }
         Spacer(Modifier.height(10.dp))
@@ -85,7 +86,7 @@ fun NotesScreen(onClickAddNewNote: () -> Unit) {
                 NoteItemContent(it)
             }
             item {
-                AddNewNoteItem(onClickAddNewNote)
+                AddNewNoteItem(callback::toNoteCreation)
             }
         }
         Spacer(Modifier.height(10.dp))
@@ -104,7 +105,7 @@ fun NotesScreen(onClickAddNewNote: () -> Unit) {
                 NoteItemContent(it)
             }
             item {
-                AddNewNoteItem(onClickAddNewNote)
+                AddNewNoteItem(callback::toNoteCreation)
             }
         }
         Spacer(Modifier.height(10.dp))

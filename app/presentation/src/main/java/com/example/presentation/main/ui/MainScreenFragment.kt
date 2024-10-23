@@ -88,7 +88,7 @@ class MainScreenFragment : Fragment() {
                 }) {
                     NavHostContainer(
                         navController = navController,
-                        onClickAddNewNote = { callback.toNoteCreation() }
+                        callback = callback
                     )
                 }
             }
