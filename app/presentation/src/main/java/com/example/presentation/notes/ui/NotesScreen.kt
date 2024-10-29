@@ -50,7 +50,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             .padding(vertical = 10.dp)
     ) {
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-            Text(text = "Ваши записки", style = MaterialTheme.typography.labelLarge)
+            Text(text = stringResource(R.string.your_notes), style = MaterialTheme.typography.labelLarge)
         }
         Spacer(Modifier.height(20.dp))
         TitleBookmark(
