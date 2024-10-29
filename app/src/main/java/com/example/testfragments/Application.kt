@@ -1,6 +1,7 @@
 package com.example.testfragments
 
 import android.app.Application
+import com.example.data.source.notesDatabaseModule
 import com.example.presentation.converter.di.converterModule
 import com.example.presentation.creation.di.noteCreationModule
 import com.example.presentation.main.di.mainScreenModule
@@ -20,7 +21,8 @@ class Application: Application() {
                 messageModule,
                 converterModule,
                 mainScreenModule,
-                noteCreationModule
+                noteCreationModule,
+                notesDatabaseModule
             )
         }
     }

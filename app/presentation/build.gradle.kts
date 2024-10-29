@@ -44,11 +44,11 @@ android {
 dependencies {
 
     implementation(project(":app:domain"))
+    implementation(project(":app:data"))
 
     implementation(libs.androidx.material3)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -56,8 +56,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("io.insert-koin:koin-android:3.5.6")
     debugImplementation(libs.ui.tooling)
+    implementation("io.insert-koin:koin-android:3.5.6")
     implementation("androidx.navigation:navigation-compose:2.8.3")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 }
