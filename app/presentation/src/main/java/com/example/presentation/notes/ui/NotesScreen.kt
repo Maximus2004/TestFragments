@@ -42,6 +42,7 @@ import com.example.presentation.theme.TestFragmentsTheme
 
 @Composable
 fun NotesScreen(callback: MainScreenInterface) {
+
     val scrollState = rememberScrollState()
     Column(
         Modifier

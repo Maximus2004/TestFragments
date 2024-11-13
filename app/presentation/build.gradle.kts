@@ -1,5 +1,6 @@
 plugins {
     id("com.android.library")
+    id("kotlin-kapt")
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
@@ -57,7 +58,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     debugImplementation(libs.ui.tooling)
-    implementation("io.insert-koin:koin-android:3.5.6")
+
+    api(libs.koin.core)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.composeVM)
+
     implementation("androidx.navigation:navigation-compose:2.8.3")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+}
+
+kapt {
+    correctErrorTypes = true
 }

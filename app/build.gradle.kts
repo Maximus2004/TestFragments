@@ -40,6 +40,7 @@ dependencies {
 
     implementation(project(":app:presentation"))
     implementation(project(":app:data"))
+    implementation(project(":app:domain"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -49,7 +50,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("io.insert-koin:koin-android:3.5.6")
+
+    api(libs.koin.core)
+    implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.composeVM)
 }
 
 kapt {

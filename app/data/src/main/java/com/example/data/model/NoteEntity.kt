@@ -1,15 +1,15 @@
 package com.example.data.model
 
-import android.graphics.Color
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
 data class NoteEntity(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
     @ColumnInfo("category_text") val categoryText: String = "Категория",
     @ColumnInfo("category_color") val categoryColor: Int,
     val title: String,
+    @ColumnInfo("note_text") val noteText: String,
     @ColumnInfo("is_favourite") val isFavourite: Boolean
 )
