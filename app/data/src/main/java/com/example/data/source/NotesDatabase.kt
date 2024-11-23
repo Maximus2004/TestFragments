@@ -7,16 +7,15 @@ import androidx.room.RoomDatabase
 import com.example.data.dao.NoteDao
 import com.example.data.model.NoteEntity
 
-@Database(entities = [NoteEntity::class], version = 2)
+@Database(entities = [NoteEntity::class], version = 3)
 abstract class NotesDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
 }
 
 fun getNotesDatabase(ctx: Context): NotesDatabase {
-    val appContext = ctx.applicationContext
-    val dbFile = appContext.getDatabasePath("notes.db")
+    val dbFile = ctx.getDatabasePath("notes.db")
     return Room.databaseBuilder(
-        context = appContext,
+        context = ctx,
         name = dbFile.absolutePath,
         klass = NotesDatabase::class.java
     ).build()

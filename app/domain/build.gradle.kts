@@ -1,7 +1,7 @@
 plugins {
     id("com.android.library")
-    id("kotlin-kapt")
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -44,13 +44,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.room.runtime)
 
-    api(libs.koin.core)
-    implementation(libs.koin.androidx.compose)
     implementation(libs.koin.android)
-    implementation(libs.koin.compose)
-    implementation(libs.koin.composeVM)
-}
-
-kapt {
-    correctErrorTypes = true
+    kapt(libs.koin.ksp.compiler)
+    kapt(libs.androidx.room.compiler)
 }

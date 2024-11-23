@@ -7,6 +7,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val noteCreationModule = module {
-    viewModel { NoteCreationViewModel(get<NotesDatabaseRepository>()) }
     factory { NoteCreationFragment() }
+    viewModel { NoteCreationViewModel(get<NotesDatabaseRepository>()) }
 }

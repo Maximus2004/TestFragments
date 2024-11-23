@@ -25,6 +25,8 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,9 +41,12 @@ import com.example.presentation.main.ui.MainScreenInterface
 import com.example.presentation.notes.models.NoteItem
 import com.example.presentation.notes.models.mockNoteItems
 import com.example.presentation.theme.TestFragmentsTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun NotesScreen(callback: MainScreenInterface) {
+    val notesScreenViewModel: NotesScreenViewModel = koinViewModel()
+    val notesList by notesScreenViewModel.getNoteItems().collectAsState(emptyList())
 
     val scrollState = rememberScrollState()
     Column(
@@ -64,7 +69,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.padding(start = 10.dp)
         ) {
-            items(mockNoteItems) {
+            items(notesList) {
                 NoteItemContent(it)
             }
             item {
@@ -83,7 +88,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.padding(start = 10.dp)
         ) {
-            items(mockNoteItems) {
+            items(notesList) {
                 NoteItemContent(it)
             }
             item {
@@ -102,7 +107,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             modifier = Modifier.padding(start = 10.dp)
         ) {
-            items(mockNoteItems) {
+            items(notesList) {
                 NoteItemContent(it)
             }
             item {

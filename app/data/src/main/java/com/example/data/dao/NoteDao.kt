@@ -8,8 +8,8 @@ import com.example.data.model.NoteEntity
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM notes")
-    fun getAllNotes(): List<NoteEntity>
+    suspend fun getAllNotes(): List<NoteEntity>
 
     @Insert
-    fun insertNewNote(note: NoteEntity)
+    suspend fun insertNewNote(note: NoteEntity)
 }
