@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import com.example.presentation.R
@@ -37,6 +38,13 @@ class NoteCreationFragment : Fragment(R.layout.fragment_note_creation) {
             viewModel.insertNote(noteItem)
             callback.onClickAnyButton()
         }
+        val categories = listOf("Жизнь", "Работа")
+        val adapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            categories
+        )
+        binding.spinner.setAdapter(adapter)
         return binding.root
     }
 

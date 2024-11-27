@@ -12,4 +12,7 @@ interface NoteDao {
 
     @Insert
     suspend fun insertNewNote(note: NoteEntity)
+
+    @Query("SELECT * FROM notes WHERE title LIKE '%' || :word || '%'")
+    suspend fun findNoteWithWord(word: String): List<NoteEntity>
 }

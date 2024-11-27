@@ -9,7 +9,7 @@
     tools:context="com.example.presentation.creation.ui.NoteCreationFragment">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Создание заметки"
         android:textSize="26sp"
@@ -24,8 +24,13 @@
     <EditText
         android:id="@+id/noteDescriptionEditText"
         android:layout_width="match_parent"
-        android:hint="Введитt заметкe..."
+        android:hint="Введите текст заметки..."
         android:layout_height="300dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/readyButton"

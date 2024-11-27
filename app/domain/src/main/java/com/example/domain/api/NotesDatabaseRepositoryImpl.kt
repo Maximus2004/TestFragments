@@ -11,4 +11,8 @@ class NotesDatabaseRepositoryImpl(private val noteDao: NoteDao) : NotesDatabaseR
     override suspend fun insertNewNote(note: NoteEntity) {
         noteDao.insertNewNote(note)
     }
+
+    override suspend fun findNoteWithWord(word: String): List<NoteEntity> {
+        return noteDao.findNoteWithWord(word)
+    }
 }

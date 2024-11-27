@@ -8,6 +8,7 @@ import com.example.presentation.creation.di.noteCreationModule
 import com.example.presentation.main.di.mainScreenModule
 import com.example.presentation.message.di.messageModule
 import com.example.presentation.notes.di.notesScreenModule
+import com.example.presentation.search.di.searchScreenModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -26,7 +27,8 @@ class Application: Application() {
                 converterModule,
                 mainScreenModule,
                 noteCreationModule,
-                notesScreenModule
+                notesScreenModule,
+                searchScreenModule
             )
         }
     }

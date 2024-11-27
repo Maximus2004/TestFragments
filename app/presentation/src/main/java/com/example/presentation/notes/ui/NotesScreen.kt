@@ -173,9 +173,9 @@ fun AddNewNoteItem(onClickAddNewNote: () -> Unit) {
 }
 
 @Composable
-fun NoteItemContent(noteItem: NoteItem) {
+fun NoteItemContent(noteItem: NoteItem, modifier: Modifier = Modifier) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .height(150.dp)
             .width(250.dp)
             .clip(RoundedCornerShape(12.dp))
