@@ -65,4 +65,5 @@ dependencies {
     kapt(libs.androidx.room.compiler)
 
     implementation("androidx.navigation:navigation-compose:2.8.4")
+    implementation("com.github.yukuku:ambilwarna:2.0.1")
 }

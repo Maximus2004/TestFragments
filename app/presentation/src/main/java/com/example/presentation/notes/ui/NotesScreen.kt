@@ -27,6 +27,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -47,8 +50,8 @@ import org.koin.androidx.compose.koinViewModel
 fun NotesScreen(callback: MainScreenInterface) {
     val notesScreenViewModel: NotesScreenViewModel = koinViewModel()
     val notesList by notesScreenViewModel.getNoteItems().collectAsState(emptyList())
-
     val scrollState = rememberScrollState()
+
     Column(
         Modifier
             .fillMaxSize()
@@ -70,7 +73,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             modifier = Modifier.padding(start = 10.dp)
         ) {
             items(notesList) {
-                NoteItemContent(it)
+                NoteItemContent(notesScreenViewModel::updateFavouriteStatus, it)
             }
             item {
                 AddNewNoteItem(callback::toNoteCreation)
@@ -89,7 +92,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             modifier = Modifier.padding(start = 10.dp)
         ) {
             items(notesList) {
-                NoteItemContent(it)
+                NoteItemContent(notesScreenViewModel::updateFavouriteStatus, it)
             }
             item {
                 AddNewNoteItem(callback::toNoteCreation)
@@ -108,7 +111,7 @@ fun NotesScreen(callback: MainScreenInterface) {
             modifier = Modifier.padding(start = 10.dp)
         ) {
             items(notesList) {
-                NoteItemContent(it)
+                NoteItemContent(notesScreenViewModel::updateFavouriteStatus, it)
             }
             item {
                 AddNewNoteItem(callback::toNoteCreation)
@@ -173,7 +176,13 @@ fun AddNewNoteItem(onClickAddNewNote: () -> Unit) {
 }
 
 @Composable
-fun NoteItemContent(noteItem: NoteItem, modifier: Modifier = Modifier) {
+fun NoteItemContent(
+    onChangeFavouriteStatus: (Int, Boolean) -> Unit,
+    noteItem: NoteItem,
+    modifier: Modifier = Modifier
+) {
+    var isFavourite by remember { mutableStateOf(noteItem.isFavourite) }
+
     Box(
         modifier = modifier
             .height(150.dp)
@@ -223,12 +232,17 @@ fun NoteItemContent(noteItem: NoteItem, modifier: Modifier = Modifier) {
                         tint = Color.Gray
                     )
                     Spacer(Modifier.weight(1f))
-                    Icon(
-                        painter = painterResource(R.drawable.ic_favourite),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp),
-                        tint = if (noteItem.isFavourite) Color.Red else Color.Gray
-                    )
+                    IconButton(onClick = {
+                        isFavourite = !isFavourite
+                        onChangeFavouriteStatus(noteItem.id ?: 0, !isFavourite)
+                    }) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_favourite),
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp),
+                            tint = if (isFavourite) Color.Red else Color.Gray
+                        )
+                    }
                 }
             }
         }
@@ -239,6 +253,6 @@ fun NoteItemContent(noteItem: NoteItem, modifier: Modifier = Modifier) {
 @Composable
 fun NotesScreenPreview() {
     TestFragmentsTheme {
-        NoteItemContent(noteItem = mockNoteItems[0])
+        NoteItemContent(noteItem = mockNoteItems[0], onChangeFavouriteStatus = { _, _ -> })
     }
 }

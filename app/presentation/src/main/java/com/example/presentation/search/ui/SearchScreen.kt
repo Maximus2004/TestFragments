@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -31,7 +32,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.presentation.notes.ui.NoteItemContent
 import org.koin.compose.koinInject
-import androidx.compose.foundation.lazy.items
 
 @Composable
 fun SearchScreen() {
@@ -52,7 +52,11 @@ fun SearchScreen() {
             )
         }
         items(noteList.value) {
-            NoteItemContent(it, Modifier.fillMaxWidth())
+            NoteItemContent(
+                searchScreenViewModel::updateFavouriteStatus,
+                it,
+                Modifier.fillMaxWidth()
+            )
         }
     }
 }

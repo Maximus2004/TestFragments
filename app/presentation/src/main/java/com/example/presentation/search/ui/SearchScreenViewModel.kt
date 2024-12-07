@@ -19,14 +19,20 @@ class SearchScreenViewModel(
     fun findNoteWithWord(search: String) = viewModelScope.launch {
         _noteList.update {
             notesDatabaseRepository.findNoteWithWord(search).map {
+                val category = it.category
+                val note = it.note
                 NoteItem(
-                    categoryColor = Color(it.categoryColor),
-                    title = it.title,
-                    noteText = it.noteText,
-                    categoryText = it.categoryText,
-                    isFavourite = it.isFavourite
+                    categoryColor = Color((category?.color ?: 0xFFFF0000) as Int),
+                    title = note.title,
+                    noteText = note.noteText,
+                    categoryText = category?.name ?: "",
+                    isFavourite = note.isFavourite
                 )
             }
         }
+    }
+
+    fun updateFavouriteStatus(noteId: Int, isFavourite: Boolean) = viewModelScope.launch {
+        notesDatabaseRepository.updateFavouriteStatus(noteId, isFavourite)
     }
 }
