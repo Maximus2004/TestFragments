@@ -22,6 +22,8 @@ data class NoteEntity(
     @PrimaryKey(autoGenerate = true) val id: Int? = null,
     @ColumnInfo("category_id") val categoryId: Int,
     val title: String,
+    val timestamp: Long,
+    val share: Boolean,
     @ColumnInfo("note_text") val noteText: String,
     @ColumnInfo("is_favourite") val isFavourite: Boolean
 )

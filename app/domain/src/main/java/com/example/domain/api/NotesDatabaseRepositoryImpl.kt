@@ -5,12 +5,13 @@ import com.example.data.dao.NoteDao
 import com.example.data.model.CategoryEntity
 import com.example.data.model.NoteEntity
 import com.example.data.model.NoteWithCategory
+import kotlinx.coroutines.flow.Flow
 
 class NotesDatabaseRepositoryImpl(
     private val noteDao: NoteDao,
     private val categoryDao: CategoryDao
 ) : NotesDatabaseRepository {
-    override suspend fun getAllNotes(): List<NoteWithCategory> {
+    override fun getAllNotes(): Flow<List<NoteWithCategory>> {
         return noteDao.getNotesWithCategories()
     }
 
@@ -32,5 +33,13 @@ class NotesDatabaseRepositoryImpl(
 
     override suspend fun getAllCategories(): List<CategoryEntity> {
         return categoryDao.getAllCategories()
+    }
+
+    override suspend fun updateLastOpenTimestamp(noteId: Int) {
+        noteDao.updateLastOpenTimestamp(noteId, System.currentTimeMillis())
+    }
+
+    override suspend fun updateShareStatus(noteId: Int, share: Boolean) {
+        noteDao.updateShareStatus(noteId, share)
     }
 }

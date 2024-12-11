@@ -3,6 +3,7 @@ package com.example.presentation.notes.ui
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,90 +35,131 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.presentation.R
 import com.example.presentation.main.ui.MainScreenInterface
+import com.example.presentation.main.ui.MainViewModel
 import com.example.presentation.notes.models.NoteItem
 import com.example.presentation.notes.models.mockNoteItems
 import com.example.presentation.theme.TestFragmentsTheme
+import com.google.gson.Gson
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun NotesScreen(callback: MainScreenInterface) {
+fun NotesScreen(
+    navController: NavController,
+    callback: MainScreenInterface,
+    mainViewModel: MainViewModel
+) {
     val notesScreenViewModel: NotesScreenViewModel = koinViewModel()
-    val notesList by notesScreenViewModel.getNoteItems().collectAsState(emptyList())
+    val notesList by notesScreenViewModel.notes.collectAsState()
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
+    val authStatus = mainViewModel.authStatus.collectAsState()
 
-    Column(
-        Modifier
-            .fillMaxSize()
-            .verticalScroll(scrollState)
-            .padding(vertical = 10.dp)
-    ) {
-        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-            Text(text = stringResource(R.string.your_notes), style = MaterialTheme.typography.labelLarge)
-        }
-        Spacer(Modifier.height(20.dp))
-        TitleBookmark(
-            icon = R.drawable.ic_last_notes,
-            title = R.string.last_notes,
-            iconTint = MaterialTheme.colorScheme.surfaceTint
-        )
-        Spacer(Modifier.height(10.dp))
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.padding(start = 10.dp)
+    if (authStatus.value) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(scrollState)
+                .padding(vertical = 10.dp)
         ) {
-            items(notesList) {
-                NoteItemContent(notesScreenViewModel::updateFavouriteStatus, it)
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                Text(
+                    text = stringResource(R.string.your_notes),
+                    style = MaterialTheme.typography.labelLarge
+                )
             }
-            item {
-                AddNewNoteItem(callback::toNoteCreation)
+            Spacer(Modifier.height(20.dp))
+            TitleBookmark(
+                icon = R.drawable.ic_last_notes,
+                title = R.string.last_notes,
+                iconTint = MaterialTheme.colorScheme.surfaceTint
+            )
+            Spacer(Modifier.height(10.dp))
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.padding(start = 10.dp)
+            ) {
+                items(notesList.sortedByDescending { it.timestamp }.take(3)) {
+                    NoteItemContent(
+                        onClickShareButton = {
+                            notesScreenViewModel.shareText(context, it.noteText, it.id ?: 0)
+                        },
+                        onChangeFavouriteStatus = notesScreenViewModel::updateFavouriteStatus,
+                        noteItem = it,
+                        onClickNoteCard = { navController.navigate("detail/${Gson().toJson(it)}") }
+                    )
+                }
+                item {
+                    AddNewNoteItem(callback::toNoteCreation)
+                }
             }
-        }
-        Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(10.dp))
 
-        TitleBookmark(
-            icon = R.drawable.ic_favourite,
-            title = R.string.favourites,
-            iconTint = Color.Red
-        )
-        Spacer(Modifier.height(10.dp))
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.padding(start = 10.dp)
-        ) {
-            items(notesList) {
-                NoteItemContent(notesScreenViewModel::updateFavouriteStatus, it)
+            TitleBookmark(
+                icon = R.drawable.ic_favourite,
+                title = R.string.favourites,
+                iconTint = Color.Red
+            )
+            Spacer(Modifier.height(10.dp))
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.padding(start = 10.dp)
+            ) {
+                items(notesList) {
+                    if (it.isFavourite)
+                        NoteItemContent(
+                            onClickShareButton = {
+                                notesScreenViewModel.shareText(context, it.noteText, it.id ?: 0)
+                            },
+                            onChangeFavouriteStatus = notesScreenViewModel::updateFavouriteStatus,
+                            noteItem = it,
+                            onClickNoteCard = { navController.navigate("detail/${it.id}") }
+                        )
+                }
+                item {
+                    AddNewNoteItem(callback::toNoteCreation)
+                }
             }
-            item {
-                AddNewNoteItem(callback::toNoteCreation)
-            }
-        }
-        Spacer(Modifier.height(10.dp))
+            Spacer(Modifier.height(10.dp))
 
-        TitleBookmark(
-            icon = R.drawable.ic_all_notes,
-            title = R.string.all_notes,
-            iconTint = Color.Gray
-        )
-        Spacer(Modifier.height(10.dp))
-        LazyRow(
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            modifier = Modifier.padding(start = 10.dp)
-        ) {
-            items(notesList) {
-                NoteItemContent(notesScreenViewModel::updateFavouriteStatus, it)
+            TitleBookmark(
+                icon = R.drawable.ic_all_notes,
+                title = R.string.all_notes,
+                iconTint = Color.Gray
+            )
+            Spacer(Modifier.height(10.dp))
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                modifier = Modifier.padding(start = 10.dp)
+            ) {
+                items(notesList) {
+                    NoteItemContent(
+                        onClickShareButton = {
+                            notesScreenViewModel.shareText(context, it.noteText, it.id ?: 0)
+                        },
+                        onChangeFavouriteStatus = notesScreenViewModel::updateFavouriteStatus,
+                        noteItem = it,
+                        onClickNoteCard = { navController.navigate("detail/${it.id}") }
+                    )
+                }
+                item {
+                    AddNewNoteItem(callback::toNoteCreation)
+                }
             }
-            item {
-                AddNewNoteItem(callback::toNoteCreation)
-            }
+            Spacer(Modifier.height(10.dp))
         }
-        Spacer(Modifier.height(10.dp))
+    } else {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(text = "Сначала авторизуйтесь", style = MaterialTheme.typography.displayLarge)
+        }
     }
 }
 
@@ -140,7 +182,8 @@ fun TitleBookmark(
         Icon(
             painter = painterResource(icon),
             contentDescription = null,
-            tint = iconTint
+            tint = iconTint,
+            modifier = Modifier.size(24.dp),
         )
         Spacer(Modifier.width(15.dp))
         Text(text = stringResource(title), style = MaterialTheme.typography.labelMedium)
@@ -177,7 +220,9 @@ fun AddNewNoteItem(onClickAddNewNote: () -> Unit) {
 
 @Composable
 fun NoteItemContent(
+    onClickShareButton: () -> Unit,
     onChangeFavouriteStatus: (Int, Boolean) -> Unit,
+    onClickNoteCard: () -> Unit,
     noteItem: NoteItem,
     modifier: Modifier = Modifier
 ) {
@@ -189,6 +234,7 @@ fun NoteItemContent(
             .width(250.dp)
             .clip(RoundedCornerShape(12.dp))
             .background(MaterialTheme.colorScheme.surface)
+            .clickable { onClickNoteCard() }
     ) {
         Box(
             Modifier
@@ -214,7 +260,7 @@ fun NoteItemContent(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 20.dp, horizontal = 5.dp),
+                        .padding(vertical = 20.dp),
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Text(
@@ -225,16 +271,18 @@ fun NoteItemContent(
                     )
                 }
                 Row() {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_share),
-                        contentDescription = null,
-                        modifier = Modifier.size(24.dp),
-                        tint = Color.Gray
-                    )
+                    IconButton(onClick = { onClickShareButton() }) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_share),
+                            contentDescription = null,
+                            modifier = Modifier.size(24.dp),
+                            tint = Color.Gray
+                        )
+                    }
                     Spacer(Modifier.weight(1f))
                     IconButton(onClick = {
                         isFavourite = !isFavourite
-                        onChangeFavouriteStatus(noteItem.id ?: 0, !isFavourite)
+                        onChangeFavouriteStatus(noteItem.id ?: 0, isFavourite)
                     }) {
                         Icon(
                             painter = painterResource(R.drawable.ic_favourite),
@@ -253,6 +301,11 @@ fun NoteItemContent(
 @Composable
 fun NotesScreenPreview() {
     TestFragmentsTheme {
-        NoteItemContent(noteItem = mockNoteItems[0], onChangeFavouriteStatus = { _, _ -> })
+        NoteItemContent(
+            noteItem = mockNoteItems[0],
+            onChangeFavouriteStatus = { _, _ -> },
+            onClickNoteCard = {},
+            onClickShareButton = {},
+        )
     }
 }

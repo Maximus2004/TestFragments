@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.compose.rememberNavController
 import com.example.presentation.navigation.NavHostContainer
 import com.example.presentation.theme.TestFragmentsTheme
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainScreenFragment : Fragment() {
     private lateinit var callback: MainScreenInterface
@@ -43,6 +44,8 @@ class MainScreenFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = ComposeView(requireContext()).apply {
+        val viewModel: MainViewModel by viewModel()
+
         setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
         setContent {
             TestFragmentsTheme {
@@ -88,7 +91,8 @@ class MainScreenFragment : Fragment() {
                 }) {
                     NavHostContainer(
                         navController = navController,
-                        callback = callback
+                        callback = callback,
+                        viewModel = viewModel
                     )
                 }
             }

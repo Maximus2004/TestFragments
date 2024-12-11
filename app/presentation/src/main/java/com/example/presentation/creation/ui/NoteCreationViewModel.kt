@@ -21,7 +21,9 @@ class NoteCreationViewModel(private val notesDatabaseRepository: NotesDatabaseRe
             categoryId = selectedCategoryId,
             noteText = note.noteText,
             isFavourite = note.isFavourite,
-            title = note.title
+            title = note.title,
+            timestamp = System.currentTimeMillis(),
+            share = false
         )
         notesDatabaseRepository.insertNewNote(noteEntity)
     }

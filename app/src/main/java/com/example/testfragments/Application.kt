@@ -7,7 +7,9 @@ import com.example.presentation.converter.di.converterModule
 import com.example.presentation.creation.di.noteCreationModule
 import com.example.presentation.main.di.mainScreenModule
 import com.example.presentation.message.di.messageModule
+import com.example.presentation.notedetails.di.noteDetailsModule
 import com.example.presentation.notes.di.notesScreenModule
+import com.example.presentation.profile.di.profileModule
 import com.example.presentation.search.di.searchScreenModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -28,7 +30,9 @@ class Application: Application() {
                 mainScreenModule,
                 noteCreationModule,
                 notesScreenModule,
-                searchScreenModule
+                searchScreenModule,
+                noteDetailsModule,
+                profileModule
             )
         }
     }

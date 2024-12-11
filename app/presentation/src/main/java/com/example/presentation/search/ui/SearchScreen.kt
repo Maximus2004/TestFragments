@@ -4,6 +4,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -28,35 +29,59 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.presentation.main.ui.MainViewModel
 import com.example.presentation.notes.ui.NoteItemContent
 import org.koin.compose.koinInject
 
 @Composable
-fun SearchScreen() {
+fun SearchScreen(navController: NavController, mainViewModel: MainViewModel) {
     val searchScreenViewModel: SearchScreenViewModel = koinInject()
     val noteList = searchScreenViewModel.noteList.collectAsState()
     var searchText by remember { mutableStateOf("") }
-    LazyColumn(
-        Modifier.padding(horizontal = 10.dp),
-        verticalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
-        item {
-            SearchField(
-                value = searchText,
-                onValueChanged = { searchText = it },
-                onClickSearch = {
-                    searchScreenViewModel.findNoteWithWord(searchText)
-                }
-            )
+    val authStatus = mainViewModel.authStatus.collectAsState()
+
+    if (authStatus.value) {
+        LazyColumn(
+            Modifier
+                .padding(horizontal = 10.dp)
+                .padding(top = 20.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            item {
+                SearchField(
+                    value = searchText,
+                    onValueChanged = { searchText = it },
+                    trailingIcon = {
+                        IconButton(
+                            onClick = { searchScreenViewModel.findNoteWithWord(searchText) },
+                            modifier = Modifier.fillMaxHeight()
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = null,
+                            )
+                        }
+                    },
+                    placeholderText = "Поиск"
+                )
+            }
+            items(noteList.value) {
+                NoteItemContent(
+                    onChangeFavouriteStatus = searchScreenViewModel::updateFavouriteStatus,
+                    noteItem = it,
+                    modifier = Modifier.fillMaxWidth(),
+                    onClickNoteCard = { navController.navigate("detail/${it.id}") },
+                    onClickShareButton = {}
+                )
+            }
         }
-        items(noteList.value) {
-            NoteItemContent(
-                searchScreenViewModel::updateFavouriteStatus,
-                it,
-                Modifier.fillMaxWidth()
-            )
+    } else {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(text = "Сначала авторизуйтесь", style = MaterialTheme.typography.displayLarge)
         }
     }
 }
@@ -64,8 +89,10 @@ fun SearchScreen() {
 @Composable
 fun SearchField(
     value: String,
+    placeholderText: String,
     onValueChanged: (String) -> Unit,
-    onClickSearch: () -> Unit,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    trailingIcon: @Composable() (() -> Unit)? = null,
     modifier: Modifier = Modifier
 ) {
     TextField(
@@ -80,17 +107,8 @@ fun SearchField(
                 width = 2.dp,
                 brush = SolidColor(MaterialTheme.colorScheme.secondaryContainer)
             ),
-        trailingIcon = {
-            IconButton(
-                onClick = onClickSearch,
-                modifier = Modifier.fillMaxHeight()
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Search,
-                    contentDescription = null,
-                )
-            }
-        },
+        trailingIcon = trailingIcon,
+        visualTransformation = visualTransformation,
         colors = TextFieldDefaults.colors(
             disabledIndicatorColor = Color.Transparent,
             errorIndicatorColor = Color.Transparent,
@@ -105,7 +123,7 @@ fun SearchField(
         placeholder = {
             Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxHeight()) {
                 Text(
-                    text = "Поиск",
+                    text = placeholderText,
                     style = MaterialTheme.typography.bodyMedium,
                     textAlign = TextAlign.Start,
                 )

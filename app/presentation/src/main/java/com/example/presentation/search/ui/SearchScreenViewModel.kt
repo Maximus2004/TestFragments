@@ -26,7 +26,8 @@ class SearchScreenViewModel(
                     title = note.title,
                     noteText = note.noteText,
                     categoryText = category?.name ?: "",
-                    isFavourite = note.isFavourite
+                    isFavourite = note.isFavourite,
+                    timestamp = note.timestamp
                 )
             }
         }

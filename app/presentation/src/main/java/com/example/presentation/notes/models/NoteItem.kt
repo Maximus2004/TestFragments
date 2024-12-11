@@ -8,7 +8,8 @@ data class NoteItem(
     val categoryColor: Color,
     val title: String,
     val noteText: String,
-    val isFavourite: Boolean
+    val isFavourite: Boolean,
+    val timestamp: Long,
 )
 
 val mockNoteItems = listOf(
@@ -17,27 +18,31 @@ val mockNoteItems = listOf(
         categoryColor = Color(0xFFFFCD82),
         title = "Название длинное",
         isFavourite = false,
-        noteText = "Содержание заметки"
+        noteText = "Содержание заметки",
+        timestamp = 0
     ),
     NoteItem(
         id = 2,
         categoryColor = Color(0xFFE16F60),
         title = "Название короткое",
         isFavourite = true,
-        noteText = "Оооооочень длинное описание заметки"
+        noteText = "Оооооочень длинное описание заметки",
+        timestamp = 0
     ),
     NoteItem(
         id = 3,
         categoryColor = Color(0xFF87AFEB),
         title = "Название три",
         isFavourite = true,
-        noteText = "Среднее описание"
+        noteText = "Среднее описание",
+        timestamp = 0
     ),
     NoteItem(
         id = 4,
         categoryColor = Color(0xFFB9EB87),
         title = "Название четыре",
         isFavourite = false,
-        noteText = "Ну соусоу"
+        noteText = "Ну соусоу",
+        timestamp = 0
     )
 )

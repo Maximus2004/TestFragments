@@ -74,7 +74,8 @@ class NoteCreationFragment : Fragment(R.layout.fragment_note_creation) {
                 noteText = binding.noteDescriptionEditText.text.toString(),
                 categoryColor = Color(selectedCategory?.color ?: categories.first().color),
                 title = binding.noteNameEditText.text.toString(),
-                isFavourite = false
+                isFavourite = false,
+                timestamp = System.currentTimeMillis()
             )
             viewModel.insertNote(noteItem, selectedCategoryId = selectedCategory?.id ?: 0)
             callback.onClickReadyButton()

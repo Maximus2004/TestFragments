@@ -66,4 +66,5 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:2.8.4")
     implementation("com.github.yukuku:ambilwarna:2.0.1")
+    implementation("com.google.code.gson:gson:2.10.1")
 }

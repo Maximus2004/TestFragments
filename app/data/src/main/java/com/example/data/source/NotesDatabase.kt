@@ -6,13 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.data.dao.CategoryDao
 import com.example.data.dao.NoteDao
+import com.example.data.dao.ProfileDao
 import com.example.data.model.CategoryEntity
 import com.example.data.model.NoteEntity
+import com.example.data.model.ProfileEntity
 
-@Database(entities = [NoteEntity::class, CategoryEntity::class], version = 8)
+@Database(entities = [NoteEntity::class, CategoryEntity::class, ProfileEntity::class], version = 12)
 abstract class NotesDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
     abstract fun categoryDao(): CategoryDao
+    abstract fun profileDao(): ProfileDao
 }
 
 fun getNotesDatabase(ctx: Context): NotesDatabase {
